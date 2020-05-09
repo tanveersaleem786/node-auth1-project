@@ -12,7 +12,7 @@ function restrict() {
         try {
              
                 if(!req.session || !req.session.username) {                  
-                    res.status(401).json(authError)
+                   return res.status(401).json(authError)
                 }
 
                 next()

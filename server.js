@@ -3,6 +3,7 @@ const session = require("express-session")
 // this is just immediately calling the imported function with `session` as a parameter
 const KnexSessionStore = require("connect-session-knex")(session)
 const userRouter = require("./user/user-router")
+const authRouter = require("./auth/auth-router")
 const dbConfig = require("./data/config")
 
 const server = express()
@@ -24,7 +25,9 @@ server.use(session({
 	}),
 }))
 
+// These will come after session
 server.use("/api", userRouter)
+server.use("/api", authRouter)
 
 server.use((req, res) => {
     res.status(404).json({
