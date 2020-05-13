@@ -1,0 +1,9 @@
+npm install nodemon --save-dev
+npm install express
+npm install sqlite3
+npm install knex
+npx knex init
+npm install bcryptjs
+npm install express-session
+npm install connect-session-knex
+npm install dotenv --save-dev
